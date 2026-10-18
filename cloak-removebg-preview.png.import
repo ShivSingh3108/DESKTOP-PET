@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dosyuvldgbh6s"
-path="res://.godot/imported/dog-removebg-preview.png-8e0e9857c96370ef237ae3df6cd4cd76.ctex"
+uid="uid://bm11ckchv7vk0"
+path="res://.godot/imported/cloak-removebg-preview.png-25eebae2cdf852540484a6ec8260af6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dog-removebg-preview.png"
-dest_files=["res://.godot/imported/dog-removebg-preview.png-8e0e9857c96370ef237ae3df6cd4cd76.ctex"]
+source_file="res://cloak-removebg-preview.png"
+dest_files=["res://.godot/imported/cloak-removebg-preview.png-25eebae2cdf852540484a6ec8260af6d.ctex"]
 
 [params]
 

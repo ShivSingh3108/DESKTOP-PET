@@ -1,9 +1,103 @@
 [gd_scene format=3 uid="uid://svw37ewpt6wc"]
 
-[node name="Node2D" type="Node2D" unique_id=209130175]
+[ext_resource type="Script" uid="uid://rwn0ic2f2468" path="res://move.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bm11ckchv7vk0" path="res://cloak-removebg-preview.png" id="1_ig7tw"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=484567065]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xm2m"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(174, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(261, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(348, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(435, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(522, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(174, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(261, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(348, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(435, 130, 87, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(522, 130, 87, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xm2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2yge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c57u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efxa6")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(46.12474, 59.8507)
+
+[node name="Node2D" type="Node2D" unique_id=209130175]
+script = ExtResource("1_0xm2m")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=2144631235]
+position = Vector2(98.00001, 49)
+scale = Vector2(0.54200816, 0.4678309)
+sprite_frames = SubResource("SpriteFrames_1vivr")
+animation = &"new_animation"
+frame = 4
+frame_progress = 0.6067852
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1708973433]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=122498768]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199504099]
+position = Vector2(105, 49.000004)
+scale = Vector2(0.5420081, 0.46783075)
+shape = SubResource("RectangleShape2D_1vivr")
