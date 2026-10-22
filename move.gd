@@ -1,3 +1,4 @@
+
 extends Node2D
 
 var speed =170
@@ -5,6 +6,7 @@ var direction = Vector2(1,0)
 var screen_size = Vector2()
 var window_size = Vector2(200,200)
 @onready var animated_sprite = $AnimatedSprite2D2
+
 @onready var area = $Area2D
 var is_dragging = false
 var drag_offset = Vector2()
@@ -13,15 +15,19 @@ var is_idling = false
 func maybe_idle():
 	if randf() < 0.3:
 		is_idling = true
-		idle_timer = randf_range(1.0,3.0)
+		idle_timer = randf_range(2.0,2.0)
 		var r = randi() % 3
 		if r == 0:
 			animated_sprite.play("Idle")
 			speed = 0
 func _ready():
+	$Label.visible = true
+	get_tree().create_timer(3.0).timeout.connect(func():$Label.visible = false)
 	screen_size = Vector2(DisplayServer.screen_get_size())
 	animated_sprite.play("Walk_Right")
 	area.input_event.connect(_on_area_input)
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	var window_position=Vector2(DisplayServer.window_get_position())
@@ -46,6 +52,8 @@ func _physics_process(delta: float) -> void:
 		direction.y *= -1
 		maybe_idle()
 	if is_dragging: 
+		$AnimatedSprite2D2.material.set_shader_parameter("flash",1.0)
+
 		var mouse_pos = Vector2(DisplayServer.mouse_get_position())
 		var new_win_pos = mouse_pos - drag_offset
 		DisplayServer.window_set_position(Vector2i(new_win_pos))
@@ -57,9 +65,19 @@ func _on_area_input(_viewport, event,_shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			is_dragging = true 
+			$AnimatedSprite2D2.material.set_shader_parameter("flash",1.0)
 			var mouse_pos = Vector2(DisplayServer.mouse_get_position())
 			var win_pos = Vector2(DisplayServer.window_get_position())
 			drag_offset = mouse_pos - win_pos
 		else:
+			$AnimatedSprite2D2.material.set_shader_parameter("flash",0)
+
 			is_dragging = false
-	
+			
+func _input(event):if event is InputEventMouseButton and event.pressed: 
+	if event.double_click:
+		OS.shell_open("https://shivsingh3108.github.io/WebOS/")
+	else:
+		$Label2.visible = true
+		get_tree().create_timer(3.0).timeout.connect(func():$Label2.visible = false)
+		screen_size = Vector2(DisplayServer.screen_get_size())
