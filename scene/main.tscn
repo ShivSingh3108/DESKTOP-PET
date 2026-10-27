@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://svw37ewpt6wc"]
 
-[ext_resource type="Script" uid="uid://rwn0ic2f2468" path="res://move.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://bm11ckchv7vk0" path="res://cloak-removebg-preview.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://rwn0ic2f2468" path="res://script/move.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bm11ckchv7vk0" path="res://assets/cloak-removebg-preview.png" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://clmruqb6qjdec" path="res://main.gdshader" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://cf3y75f8ign5a" path="res://1000051097-removebg-preview.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://da0aerxibhlbl" path="res://assets/black.jpg" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cf3y75f8ign5a" path="res://assets/1000051097-removebg-preview.png" id="3_1bvp3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lquwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("2_lquwl")
+region = Rect2(21.97536, 144.20511, 6.0129356, 5.6913757)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
 shader = ExtResource("2_h2yge")
@@ -128,38 +135,77 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(134.68436, 138.93912)
+size = Vector2(103.78073, 137.33597)
 
 [sub_resource type="Theme" id="Theme_8vrlf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1vivr"]
+[sub_resource type="FontVariation" id="FontVariation_lquwl"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_8vrlf"]
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font = SubResource("FontVariation_lquwl")
+font_color = Color(1, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.54509807)
+stacked_outline_count = 1
+stacked_shadow_count = 1
+
+[sub_resource type="FontVariation" id="FontVariation_7mycd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+line_spacing = 1.0
+font = SubResource("FontVariation_7mycd")
+font_color = Color(1, 0, 0, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.5529412)
 
 [node name="Node2D" type="Node2D" unique_id=209130175]
 script = ExtResource("1_0xm2m")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=343167007]
+material = SubResource("CanvasItemMaterial_lquwl")
+position = Vector2(97, 111)
+scale = Vector2(1.1584903, 1.0400347)
+amount = 17
+texture = SubResource("AtlasTexture_yaehf")
+lifetime = 1.24
+speed_scale = 0.64
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(20, 20)
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(-800, -1000)
+angular_velocity_min = -284.15
+angular_velocity_max = 723.1
+damping_min = 98.0
+damping_max = 98.0
+
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=2144631235]
+texture_filter = 1
 material = SubResource("ShaderMaterial_h2yge")
-position = Vector2(120, 78.00001)
+position = Vector2(119, 117)
 scale = Vector2(1.1584903, 1.0400347)
 sprite_frames = SubResource("SpriteFrames_1vivr")
 animation = &"Idle"
-frame_progress = 0.896424
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1708973433]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199504099]
-position = Vector2(120.50001, 75.5)
+position = Vector2(114.99999, 117.00001)
 scale = Vector2(0.5420081, 0.46783075)
 shape = SubResource("RectangleShape2D_1vivr")
 
 [node name="Label" type="Label" parent="." unique_id=1200815013]
 visible = false
-offset_left = 64.0
-offset_top = 16.0
-offset_right = 203.0
-offset_bottom = 39.0
+offset_left = 46.0
+offset_top = 49.0
+offset_right = 185.0
+offset_bottom = 72.0
 theme = SubResource("Theme_8vrlf")
 theme_override_colors/font_color = Color(0.95, 0.01899998, 0.01899998, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -167,16 +213,24 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 7
 theme_override_font_sizes/font_size = 16
 text = "HI I AM MALWARE"
-label_settings = SubResource("LabelSettings_1vivr")
+label_settings = SubResource("LabelSettings_1bvp3")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1290707997]
 wait_time = 3.0
 autostart = true
 
+[node name="Timer2" type="Timer" parent="." unique_id=180613574]
+
 [node name="Label2" type="Label" parent="." unique_id=960434808]
 visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "HI"
-label_settings = SubResource("LabelSettings_8vrlf")
+offset_left = 62.0
+offset_top = 4.0
+offset_right = 166.0
+offset_bottom = 71.0
+label_settings = SubResource("LabelSettings_lquwl")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pett"
-run/main_scene="uid://svw37ewpt6wc"
+run/main_scene="uid://b3aohc5p87rsv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]

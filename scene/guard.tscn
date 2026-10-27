@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://b13a470apawg2"]
+
+[ext_resource type="Script" uid="uid://lf38j5387fxv" path="res://script/guard.gd" id="1_opr0s"]
+[ext_resource type="Texture2D" uid="uid://de5vfn4gfnjuf" path="res://assets/1000051543.png" id="2_30cdx"]
+[ext_resource type="Texture2D" uid="uid://co4ng1ppw0ngf" path="res://assets/idle rest.png" id="2_weq8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2he53"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(0, 320, 206, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72i1o"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(206, 320, 206, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuo2i"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(432, 320, 216, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwap5"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(840, 320, 210, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1tja"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(1155, 320, 231, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me1k6"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(1060, 699, 212, 233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weq8v"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(211, 628, 211, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou8br"]
+atlas = ExtResource("2_weq8v")
+region = Rect2(422, 628, 211, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30cdx"]
+atlas = ExtResource("2_30cdx")
+region = Rect2(420, 321, 210, 318)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoykg"]
+atlas = ExtResource("2_30cdx")
+region = Rect2(0, 321, 208, 318)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cruxe"]
+atlas = ExtResource("2_30cdx")
+region = Rect2(208, 321, 208, 318)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30cdx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2he53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72i1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuo2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwap5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1tja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me1k6")
+}],
+"loop": 0,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.8,
+"texture": SubResource("AtlasTexture_weq8v")
+}, {
+"duration": 1.8,
+"texture": SubResource("AtlasTexture_ou8br")
+}],
+"loop": 1,
+"name": &"Rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30cdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoykg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30cdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cruxe")
+}],
+"loop": 1,
+"name": &"Walk_Right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30cdx"]
+size = Vector2(39, 57)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ou8br"]
+font_color = Color(1, 0.81799996, 0.16000003, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="FontVariation" id="FontVariation_nc47s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_30cdx"]
+line_spacing = 1.0
+font = SubResource("FontVariation_nc47s")
+font_color = Color(1, 0.81799996, 0.16000003, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.5529412)
+
+[sub_resource type="LabelSettings" id="LabelSettings_weq8v"]
+line_spacing = 1.0
+font_size = 10
+font_color = Color(1, 0.81799996, 0.16000003, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.70980394)
+
+[node name="Node2D" type="Node2D" unique_id=551204538]
+script = ExtResource("1_opr0s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1185199391]
+position = Vector2(99.24765, 106.31673)
+scale = Vector2(0.43448892, 0.36052042)
+sprite_frames = SubResource("SpriteFrames_30cdx")
+animation = &"Idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1463093706]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1182731919]
+position = Vector2(95.5, 95.5)
+shape = SubResource("RectangleShape2D_30cdx")
+
+[node name="Label" type="Label" parent="." unique_id=1117136787]
+visible = false
+offset_left = 45.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 63.0
+text = "I AM FIREWALL"
+label_settings = SubResource("LabelSettings_ou8br")
+
+[node name="Timer" type="Timer" parent="." unique_id=709643743]
+
+[node name="Timer2" type="Timer" parent="." unique_id=60435016]
+
+[node name="Label2" type="Label" parent="." unique_id=1881712530]
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 162.0
+offset_bottom = 72.0
+label_settings = SubResource("LabelSettings_30cdx")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PopupMenu" type="PopupMenu" parent="." unique_id=371181336]
+
+[node name="Label3" type="Label" parent="." unique_id=302395339]
+offset_left = 14.0
+offset_top = 133.0
+offset_right = 186.0
+offset_bottom = 195.0
+label_settings = SubResource("LabelSettings_weq8v")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer3" type="Timer" parent="." unique_id=2047996199]
+wait_time = 0.001
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
