@@ -1,6 +1,6 @@
 # DESKTOP PET
 ## About 
-I created a Cybersecurity themed Desktop pet using godot for stardance event of Hackclub.
+I created a Cybersecurity themed Desktop pet for windows using godot for stardance event of Hackclub.
 
 ## Features
 * 2 Pets - It has 2 pets named: Malware and Firewall and you can get one at random, you can also reroll.
