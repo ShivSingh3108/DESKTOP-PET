@@ -16,9 +16,9 @@ I created a Cybersecurity themed Desktop pet using godot for stardance event of 
 Its still not perfect , I will be adding more features in future.
 ## How to Run
 Go to https://shivsingh3108.itch.io/cyber-pets
-1.Download Cyber-PETS.zip
-2.Right Click the zip and Extract All.
-3.Open folder and Double -Click pett.exe
+1. Download Cyber-PETS.zip
+2. Right Click the zip and Extract All.
+3. Open folder and Double -Click pett.exe
 
 ## Author
 
